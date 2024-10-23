@@ -2,8 +2,10 @@
 - name: Test connectivity to Cisco switch
   hosts: switches
   gather_facts: no
+  collections:
+    - cisco.ios
   tasks:
     - name: Run 'show version' command on the switch
-      cisco.ios.ios_command:
-        commands: show version
-
+      ios_command:
+        commands:
+          - show version
