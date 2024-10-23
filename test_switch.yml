@@ -1,6 +1,6 @@
 ---
 - name: Test connectivity to Cisco switch
-  hosts: switch01
+  hosts: switches
   gather_facts: no
   collections:
     - cisco.ios
