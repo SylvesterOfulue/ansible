@@ -4,6 +4,8 @@
   tasks:
     - name: Test if the switch is reachable
       ansible.builtin.ping:
+      vars:
+        ansible_ssh_common_args: '-o KexAlgorithms=+diffie-hellman-group14-exchange-sha1 -o Ciphers=+aes128-cbc,aes256-cbc'
 
     - name: Run 'show version' command on the switch
       cisco.ios.ios_command:
