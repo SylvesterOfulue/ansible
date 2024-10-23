@@ -1,10 +1,13 @@
 ---
 - name: Test connectivity to Cisco switch
-  hosts: switches
+  hosts: switch01
   gather_facts: no
   collections:
     - cisco.ios
   tasks:
+    - name: Test if the switch is reachable
+      ping:
+
     - name: Run 'show version' command on the switch
       ios_command:
         commands:
