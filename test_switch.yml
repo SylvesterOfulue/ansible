@@ -5,7 +5,7 @@
     - name: Test if the switch is reachable
       ansible.builtin.ping:
       vars:
-        ansible_ssh_common_args: '-o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=+aes128-cbc,aes256-cbc'
+        ansible_ssh_common_args: '-o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=+aes128-cbc,aes256-cbc -o HostKeyAlgorithms=+ssh-rsa'
 
     - name: Run 'show version' command on the switch
       cisco.ios.ios_command:
