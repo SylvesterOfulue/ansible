@@ -1,14 +1,16 @@
----
 - name: Test connectivity to Cisco switch
   hosts: switches
   gather_facts: no
-  collections:
-    - cisco.ios
   tasks:
     - name: Test if the switch is reachable
-      ping:
+      ansible.builtin.ping:
 
     - name: Run 'show version' command on the switch
-      ios_command:
+      cisco.ios.ios_command:
         commands:
           - show version
+      register: result
+
+    - name: Display the result
+      debug:
+        var: result
