@@ -1,0 +1,2 @@
+[switches]
+LGN-TEST ansible_host=192.168.2.240 ansible_network_os=cisco.ios ansible_python_interpreter=/usr/bin/python ansible_user=admin ansible_password=admin-123
