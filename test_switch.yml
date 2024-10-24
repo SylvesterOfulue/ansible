@@ -3,7 +3,7 @@
   gather_facts: no
   tasks:
     - name: Test if the switch is reachable
-      ping:
+      cisco.ios.ios_ping:
         dest: 8.8.8.8
       vars:
         ansible_ssh_common_args: '-o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=+aes128-cbc,aes256-cbc -o HostKeyAlgorithms=+ssh-rsa'
