@@ -8,3 +8,4 @@ all:
       ansible_network_os: ios  # Specifies Cisco IOS; adjust if using a different Cisco OS
       ansible_connection: ansible.netcommon.network_cli  # Use network CLI for Cisco switches
       ansible_ssh_common_args: '-o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=+aes128-ctr,aes256-ctr,aes128-ctr,aes256-ctr -o HostKeyAlgorithms=+ssh-rsa'
+      paramiko_look_for_keys: False
