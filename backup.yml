@@ -32,5 +32,5 @@
           VLAN Count: {{ vlan_output.stdout[0].splitlines()[2:] | length }}
           VLANs:
           {% for line in vlan_output.stdout[0].splitlines()[2:] %}
-          VLAN {{ line.split()[0] }}: {{ line.split()[1] }}\n
+          VLAN {{ line.split()[0] }}: {{ line.split()[1] }}
           {% endfor %}

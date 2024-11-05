@@ -31,6 +31,5 @@
         msg: >
           VLAN Count: {{ vlan_output.stdout[0].splitlines()[2:] | length }}
           VLANs:
-          {% for line in vlan_output.stdout[0].splitlines()[2:] %}
-          VLAN {{ line.split()[0] }}: {{ line.split()[1] }}
-          {% endfor %}
+          {{ vlan_output.stdout[0].splitlines()[2:] | map('split') | map('join', ': ') | join('\n') }}
+
