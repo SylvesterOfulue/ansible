@@ -1,6 +1,3 @@
 [switches]
-ansible_host=10.10.55.220
-ansible_user=sylvester
-ansible_password=admin-123
-ansible_network_os=cisco.ios
-ansible_connection=network_cli
+WRDX-SWT-01 ansible_host=10.10.55.220 ansible_user=sylvester ansible_password=admin-123 ansible_network_os=ios ansible_connection=network_cli
+
