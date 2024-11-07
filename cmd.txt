@@ -1,0 +1,10 @@
+ ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=aes256-cbc -o HostKeyAlgorithms=ssh-rsa  admin@192.168.2.240
+
+git status
+git add .
+git add <name of the file>
+git commit -m "message"
+git push origin main
+ansible -i cisco.yml cisco_switch -m ansible.builtin.ping 
+source ~/myenv/bin/activate
+
