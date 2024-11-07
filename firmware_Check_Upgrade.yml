@@ -1,0 +1,52 @@
+---
+- name: Periodic Firmware Checks and Upgrades
+  hosts: switches
+  gather_facts: no
+  tasks:
+  
+    - name: Check current firmware version
+      cisco.ios.ios_command:
+        commands:
+          - show version | include Version
+      register: current_firmware
+      #ignore_errors: yes
+
+    - name: Display current firmware version
+      debug:
+        msg: "Current firmware version: {{ current_firmware.stdout[0] }}"
+
+    - name: Determine if upgrade is needed
+      set_fact:
+        upgrade_needed: "{{ 'Version 15.2(7)E12' not in current_firmware.stdout[0] }}" 
+
+    - name: Proceed with upgrade if needed
+      when: upgrade_needed
+      block:
+        - name: Copy firmware image to switch
+          debug:
+            msg: "Upgrade needed"
+        #   cisco.ios.ios_file_transfer:
+        #     source: /path/to/firmware/image.bin # Local path to firmware image
+        #     dest: flash:/image.bin # Destination path on the switch
+        #     direction: put
+        #     validate_certs: no
+
+        # - name: Verify firmware image copied successfully
+        #   cisco.ios.ios_command:
+        #     commands:
+        #       - dir flash:/image.bin
+        #   register: image_check
+
+  #       - name: Perform firmware upgrade
+  #         cisco.ios.ios_command:
+  #           commands:
+  #             - request platform software package install flash:/image.bin # Example command, may vary
+  #         notify: Reboot switch to apply firmware upgrade
+
+  # handlers:
+  #   - name: Reboot switch to apply firmware upgrade
+  #     cisco.ios.ios_command:
+  #       commands:
+  #         - reload
+  #     when: upgrade_needed
+  #     ignore_errors: yes

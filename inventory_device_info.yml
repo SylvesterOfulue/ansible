@@ -1,0 +1,15 @@
+# playbook_collect_device_info.yml
+- name: Collect device information
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Gather device facts
+      cisco.ios.ios_facts:
+
+    - name: Display device information
+      debug:
+        msg: 
+          - "Model: {{ ansible_net_model | default('N/A') }}"
+          - "Serial: {{ ansible_net_serialnum | default('N/A') }}"
+          - "Software Version: {{ ansible_net_version | default('N/A') }}"
+          - "Hardware: {{ ansible_net_hardware | default('N/A') }}"

@@ -3,35 +3,49 @@
   hosts: switches
   gather_facts: no
   vars:
-    vlan_id: 102
-    new_vlan_name: Guest
-
-    ansible_connection: ansible.netcommon.network_cli
-    ansible_network_os: cisco.ios.ios
-    ansible_become: yes
+    vlan_id: 102 #Will be created if it does not exist
+    vlan_name: Guest
+    interface: "Fa0/6"
+    #ansible_connection: ansible.netcommon.network_cli
+    #ansible_network_os: cisco.ios.ios
+    ansible_become: yes # Required for privilege escalation
     ansible_become_method: enable
     ansible_become_pass: "admin-123"
-    ansible_command_timeout: 60
+    #ansible_command_timeout: 60
   tasks:
-    - name: Rename VLAN
+    - name: Rename/Create a VLAN
       cisco.ios.ios_config:
         lines:
-          - name {{ new_vlan_name }}
+          - name {{ vlan_name }}
         parents: 
           - vlan {{ vlan_id }}
         match: exact
         replace: line
+
+    - name: Assign interface to VLAN 
+      cisco.ios.ios_config:
+        parents:
+          - interface {{ interface }}
+        lines:
+          - switchport access vlan {{ vlan_id }}
+          - description TEST
+          - switchport mode access
+        match: exact
+        replace: line
+
     - name: Run 'show vlan brief' command
       cisco.ios.ios_command:
         commands:
           - show vlan brief
       register: vlan_output
 
-    - name: Parse VLAN output and display VLAN count and descriptions
+    - name: Display VLANs
       debug:
-        msg: >
+        var: vlan_output.stdout_lines
+
+    - name: Number of VLANs
+      debug:
+        msg: |
           VLAN Count: {{ vlan_output.stdout[0].splitlines()[2:] | length }}
-          VLANs:
-          {% for line in vlan_output.stdout[0].splitlines()[2:] %}
-          - VLAN {{ line.split()[0] }}: {{ line.split()[1] }}
-          {% endfor %}
+
+

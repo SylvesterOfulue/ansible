@@ -1,0 +1,14 @@
+---
+- name: Get interface status
+  hosts: switches  # Ensure this points to your correct group
+  gather_facts: no
+  tasks:
+    - name: Run show interfaces status command
+      cisco.ios.ios_command:
+        commands:
+          - show interfaces status
+      register: interface_output
+
+    - name: Show raw output
+      debug:
+        var: interface_output.stdout_lines

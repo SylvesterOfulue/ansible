@@ -1,0 +1,59 @@
+---
+- name: Error Detection and Correction for Network Switches
+  hosts: 
+  gather_facts: no
+  tasks:
+
+    - name: Check interfaces for errors
+      cisco.ios.ios_command:
+        commands:
+          - show interfaces | include error
+      register: interface_errors
+      ignore_errors: yes
+
+    - name: Parse and analyze interface errors
+      set_fact:
+        error_interfaces: "{{ interface_errors.stdout_lines | select('search', 'error') | list }}"
+      ignore_errors: yes
+
+    - name: Display interfaces with errors
+      debug:
+        var: error_interfaces
+
+    - name: Reset interfaces with errors
+      when: error_interfaces | length > 0
+      loop: "{{ error_interfaces }}"
+      cisco.ios.ios_config:
+        lines:
+          - shutdown
+          - no shutdown
+        parents:
+          - interface {{ item.split()[0] }} # Adjust based on error message parsing
+      ignore_errors: yes
+
+    - name: Check configuration compliance
+      cisco.ios.ios_config:
+        lines:
+          - switchport access vlan 10 # Example of desired VLAN for compliance
+        parents:
+          - interface Fa0/1 # Specify interface or use variable
+      register: config_compliance
+      ignore_errors: yes
+
+    - name: Restore missing or incorrect configurations
+      when: config_compliance.changed
+      block:
+        - name: Correct VLAN assignment
+          cisco.ios.ios_config:
+            lines:
+              - switchport access vlan 10
+            parents:
+              - interface Fa0/1
+        - name: Ensure configuration compliance
+          debug:
+            msg: "Configuration corrected for {{ inventory_hostname }}"
+
+    - name: Notify on unresolved critical issues
+      when: error_interfaces | length > 5 # Example condition to trigger alert
+      debug:
+        msg: "Alert: Multiple unresolved issues on {{ inventory_hostname }}"

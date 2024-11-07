@@ -1,0 +1,58 @@
+---
+- name: Security and Compliance Audit for Network Switches
+  hosts: 
+  gather_facts: no
+  tasks:
+
+    - name: Verify SSH and enable strong encryption
+      cisco.ios.ios_config:
+        lines:
+          - ip ssh version 2
+          - ip ssh server algorithm encryption aes256-cbc aes192-cbc aes128-cbc
+        register: ssh_compliance
+      ignore_errors: yes
+
+    - name: Ensure local username and privilege settings
+      cisco.ios.ios_config:
+        lines:
+          - username admin privilege 15 secret SecurePassword123
+          - enable secret SuperSecureEnablePass
+      register: user_privilege_compliance
+      ignore_errors: yes
+
+    - name: Check ACL compliance for management interfaces
+      cisco.ios.ios_config:
+        lines:
+          - access-list 10 permit 192.168.0.0 0.0.0.255
+          - access-class 10 in
+        parents:
+          - line vty 0 4
+      register: acl_compliance
+      ignore_errors: yes
+
+    - name: Verify SNMP settings
+      cisco.ios.ios_config:
+        lines:
+          - snmp-server community SecCom RO
+          - snmp-server location Data Center 1
+          - snmp-server contact admin@example.com
+      register: snmp_compliance
+      ignore_errors: yes
+
+    - name: Display compliance check results
+      debug:
+        msg:
+          - "SSH Compliance: {{ ssh_compliance.changed | ternary('Updated', 'Compliant') }}"
+          - "User Privilege Compliance: {{ user_privilege_compliance.changed | ternary('Updated', 'Compliant') }}"
+          - "ACL Compliance: {{ acl_compliance.changed | ternary('Updated', 'Compliant') }}"
+          - "SNMP Compliance: {{ snmp_compliance.changed | ternary('Updated', 'Compliant') }}"
+
+    - name: Generate compliance report
+      copy:
+        content: |
+          SSH Compliance: {{ ssh_compliance.changed | ternary('Updated', 'Compliant') }}
+          User Privilege Compliance: {{ user_privilege_compliance.changed | ternary('Updated', 'Compliant') }}
+          ACL Compliance: {{ acl_compliance.changed | ternary('Updated', 'Compliant') }}
+          SNMP Compliance: {{ snmp_compliance.changed | ternary('Updated', 'Compliant') }}
+        dest: /path/to/compliance_reports/{{ inventory_hostname }}_compliance_report.txt
+      delegate_to: localhost

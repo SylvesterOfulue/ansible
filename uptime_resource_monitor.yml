@@ -1,0 +1,34 @@
+# playbook_uptime_resource_monitor.yml
+- name: Monitor switch uptime and resources
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Get uptime
+      cisco.ios.ios_command:
+        commands:
+          - show version | include uptime
+      register: uptime_output
+
+    - name: Get CPU Utilization
+      cisco.ios.ios_command:
+        commands:
+          - show processes cpu | include CPU utilization
+      register: cpu_output
+
+    - name: Get memory utilization
+      cisco.ios.ios_command:
+        commands:
+          - show processes memory | include Processor
+      register: memory_output
+
+    - name: Display switch uptime
+      debug:
+        msg: "Switch uptime: {{ uptime_output.stdout[0] }}"
+
+    - name: Display CPU utilization
+      debug:
+        msg: "CPU utilization: {{ cpu_output.stdout[0] }}"
+
+    - name: Display memory utilization
+      debug:
+        msg: "Memory utilization: {{ memory_output.stdout[0] }}"
