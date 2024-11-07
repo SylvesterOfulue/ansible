@@ -1,8 +1,10 @@
 ---
-- name: Test Cisco IOS Facts
+- name: VLAN Configuration
   hosts: switches
   gather_facts: no
-  vars: # for execution environment
+  vars:
+    vlan_id: 102
+    new_vlan_name: Guest
 
     ansible_connection: ansible.netcommon.network_cli
     ansible_network_os: cisco.ios.ios
@@ -11,15 +13,14 @@
     ansible_become_pass: "admin-123"
     ansible_command_timeout: 60
   tasks:
-    - name: Gather facts from Cisco switch
-      cisco.ios.ios_facts:
-      register: switch_facts
-
-    - name: Display gathered facts
-      debug:
-        var: switch_facts
-#      vars:
-
+    - name: Rename VLAN
+      cisco.ios.ios_config:
+        lines:
+          - name {{ new_vlan_name }}
+        parents: 
+          - vlan {{ vlan_id }}
+        match: exact
+        replace: line
     - name: Run 'show vlan brief' command
       cisco.ios.ios_command:
         commands:
@@ -28,7 +29,7 @@
 
     - name: Parse VLAN output and display VLAN count and descriptions
       debug:
-        msg: |
+        msg: >
           VLAN Count: {{ vlan_output.stdout[0].splitlines()[2:] | length }}
           VLANs:
           {% for line in vlan_output.stdout[0].splitlines()[2:] %}
