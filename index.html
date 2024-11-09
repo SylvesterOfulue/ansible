@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switch_Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #007bff;
+        }
+        .btn {
+            width: 100%;
+        }
+        pre {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+        }
+        .spinner-border {
+            display: none;
+        }
+    </style>
+    <script>
+        async function runPlaybook(playbook) {
+            document.getElementById('spinner').style.display = 'inline-block';
+            const response = await fetch('/run_playbook', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ playbook })
+            });
+            const result = await response.json();
+            document.getElementById('output').innerText = result.output;
+            document.getElementById('error').innerText = result.error;
+            document.getElementById('spinner').style.display = 'none';
+        }
+    </script>
+</head>
+<body class="container">
+    <h1 class="my-4">Switch_Manager</h1>
+    <div class="btn-group-vertical">
+        <button class="btn btn-primary mb-2" onclick="runPlaybook('firmware_Check_Upgrade.yml')">Run Firmware Check/Upgrade</button>
+        <button class="btn btn-primary mb-2" onclick="runPlaybook('vlan.yml')">Run VLAN Playbook</button>
+        <button class="btn btn-primary mb-2" onclick="runPlaybook('interface_status.yml')">Run Interface Status</button>
+        <button class="btn btn-primary mb-2" onclick="runPlaybook('backup_config.yml')">Backup Device Configuration</button>
+        <button class="btn btn-primary mb-2" onclick="runPlaybook('inventory_device_info.yml')">Run Inventory Device Info</button>
+    </div>
+    <div class="spinner-border text-primary" id="spinner" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <h2 class="my-4">Output</h2>
+    <pre id="output" class="bg-light p-3"></pre>
+    <h2 class="my-4">Error</h2>
+    <pre id="error" class="bg-light p-3"></pre>
+</body>
+</html>

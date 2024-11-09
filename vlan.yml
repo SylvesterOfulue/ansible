@@ -41,7 +41,7 @@
 
     - name: Display VLANs
       debug:
-        var: vlan_output.stdout_lines
+        var: vlan_output
 
     - name: Number of VLANs
       debug:
