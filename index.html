@@ -3,20 +3,17 @@
 <head>
     <title>Switch_Manager</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
         }
-        h1 {
-            color: #007bff;
+        .navbar {
+            margin-bottom: 20px;
         }
-        .btn {
-            width: 100%;
-        }
-        pre {
-            border: 1px solid #dee2e6;
-            border-radius: 5px;
+        .card {
+            margin-bottom: 20px;
         }
         .spinner-border {
             display: none;
@@ -36,24 +33,98 @@
             document.getElementById('output').innerText = result.output;
             document.getElementById('error').innerText = result.error;
             document.getElementById('spinner').style.display = 'none';
+            $('#outputModal').modal('show');
         }
     </script>
 </head>
 <body class="container">
-    <h1 class="my-4">Switch_Manager</h1>
-    <div class="btn-group-vertical">
-        <button class="btn btn-primary mb-2" onclick="runPlaybook('firmware_Check_Upgrade.yml')">Run Firmware Check/Upgrade</button>
-        <button class="btn btn-primary mb-2" onclick="runPlaybook('vlan.yml')">Run VLAN Playbook</button>
-        <button class="btn btn-primary mb-2" onclick="runPlaybook('interface_status.yml')">Run Interface Status</button>
-        <button class="btn btn-primary mb-2" onclick="runPlaybook('backup_config.yml')">Backup Device Configuration</button>
-        <button class="btn btn-primary mb-2" onclick="runPlaybook('inventory_device_info.yml')">Run Inventory Device Info</button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Switch_Manager</a>
+    </nav>
+    <h1 class="my-4">Run Ansible Playbooks</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Firmware Check/Upgrade</h5>
+                    <p class="card-text">Run the firmware check and upgrade playbook.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('firmware_Check_Upgrade.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">VLAN Playbook</h5>
+                    <p class="card-text">Run the VLAN configuration playbook.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('vlan.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Interface Status</h5>
+                    <p class="card-text">Run the interface status check playbook.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('interface_status.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Firmware Check/Upgrade</h5>
+                    <p class="card-text">Run the firmware check and upgrade playbook.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('firmware_check_upgrade.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Inventory Device Info</h5>
+                    <p class="card-text">Run the inventory device information playbook.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('inventory_device_info.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="spinner-border text-primary" id="spinner" role="status">
         <span class="sr-only">Loading...</span>
     </div>
-    <h2 class="my-4">Output</h2>
-    <pre id="output" class="bg-light p-3"></pre>
-    <h2 class="my-4">Error</h2>
-    <pre id="error" class="bg-light p-3"></pre>
+    <div class="modal fade" id="outputModal" tabindex="-1" role="dialog" aria-labelledby="outputModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="outputModalLabel">Playbook Output</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Output</h2>
+                    <pre id="output" class="bg-light p-3"></pre>
+                    <h2>Error</h2>
+                    <pre id="error" class="bg-light p-3"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
