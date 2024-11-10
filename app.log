@@ -194,3 +194,45 @@
 2024-11-10 16:58:15,765 INFO root Thread-6 (process_request_thread) : Received request to run playbook
 2024-11-10 16:58:21,890 INFO root Thread-6 (process_request_thread) : Playbook device_info.yml executed by user admin.
 2024-11-10 16:58:21,890 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 16:58:21] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 22:24:44,098 INFO root Thread-7 (process_request_thread) : Serving index.html
+2024-11-10 22:24:44,099 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:24:44] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 22:24:45,085 INFO root Thread-8 (process_request_thread) : Serving index.html
+2024-11-10 22:24:45,086 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:24:45] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 22:24:46,525 INFO root Thread-9 (process_request_thread) : Received request to run playbook
+2024-11-10 22:25:09,825 INFO root Thread-10 (process_request_thread) : Serving index.html
+2024-11-10 22:25:09,826 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:25:09] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 22:25:50,981 INFO root Thread-9 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 22:25:50,982 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:25:50] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 22:26:17,840 INFO root Thread-11 (process_request_thread) : Serving index.html
+2024-11-10 22:26:17,841 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:26:17] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 22:26:20,235 INFO root Thread-12 (process_request_thread) : Received request to run playbook
+2024-11-10 22:26:26,239 INFO root Thread-12 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 22:26:26,243 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:26:26] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 22:26:35,470 INFO root Thread-13 (process_request_thread) : Serving index.html
+2024-11-10 22:26:35,472 INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:26:35] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 22:30:47,694 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 22:30:47,695 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 22:30:47,696 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 22:30:47,904 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 22:30:47,911 INFO werkzeug MainThread :  * Debugger PIN: 126-626-566
+2024-11-10 22:31:01,164 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:01] "[32mGET / HTTP/1.1[0m" 302 -
+2024-11-10 22:31:01,190 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:01] "GET /login?next=/ HTTP/1.1" 200 -
+2024-11-10 22:31:01,489 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:01] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2024-11-10 22:31:10,010 WARNING root Thread-5 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 22:31:10,011 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:10] "[31m[1mPOST /login?next=/ HTTP/1.1[0m" 401 -
+2024-11-10 22:31:14,694 WARNING root Thread-6 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 22:31:14,695 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:14] "[31m[1mPOST /login?next=/ HTTP/1.1[0m" 401 -
+2024-11-10 22:31:16,915 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:16] "GET /login?next=/ HTTP/1.1" 200 -
+2024-11-10 22:31:23,807 INFO root Thread-8 (process_request_thread) : User admin logged in.
+2024-11-10 22:31:23,808 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:23] "[32mPOST /login?next=/ HTTP/1.1[0m" 302 -
+2024-11-10 22:31:23,818 INFO root Thread-9 (process_request_thread) : Serving index.html
+2024-11-10 22:31:23,828 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:31:23] "GET / HTTP/1.1" 200 -
+2024-11-10 22:31:26,159 INFO root Thread-10 (process_request_thread) : Received request to run playbook
+2024-11-10 22:32:15,088 INFO root Thread-11 (process_request_thread) : Serving index.html
+2024-11-10 22:32:15,089 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:32:15] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 22:32:31,667 INFO root Thread-12 (process_request_thread) : Received request to run playbook
+2024-11-10 22:32:31,917 INFO root Thread-10 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 22:32:31,918 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:32:31] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 22:32:37,626 INFO root Thread-12 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 22:32:37,627 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 22:32:37] "POST /run_playbook HTTP/1.1" 200 -
