@@ -17,70 +17,116 @@
         }
         .spinner-border {
             display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 999;
         }
     </style>
     <script>
         async function runPlaybook(playbook) {
+            console.log('Running playbook:', playbook);
             document.getElementById('spinner').style.display = 'inline-block';
-            const response = await fetch('/run_playbook', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ playbook })
-            });
-            const result = await response.json();
-            document.getElementById('output').innerText = result.output;
-            document.getElementById('error').innerText = result.error;
-            document.getElementById('spinner').style.display = 'none';
-            $('#outputModal').modal('show');
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('output').innerText = '';
+            document.getElementById('error').innerText = '';
+            try {
+                const response = await fetch('/run_playbook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ playbook })
+                });
+                const result = await response.json();
+                console.log('Playbook output:', result.output);
+                console.log('Playbook error:', result.error);
+                document.getElementById('output').innerText = result.output;
+                document.getElementById('error').innerText = result.error;
+            } catch (error) {
+                console.error('Error running playbook:', error);
+                document.getElementById('error').innerText = 'An error occurred while running the playbook.';
+            } finally {
+                document.getElementById('spinner').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+                $('#outputModal').modal('show');
+            }
         }
     </script>
 </head>
 <body class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Switch_Manager</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <h1 class="my-4">Run Ansible Playbooks</h1>
     <div class="row">
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
+                    <h5 class="card-title">Backup Configuration</h5>
+                    <p class="card-text">Backup the configuration of network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('backup_config.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Device Info</h5>
+                    <p class="card-text">Get information about network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('device_info.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Device Resources Uptime</h5>
+                    <p class="card-text">Check the resources and uptime of network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('device_resources_uptime.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Error Detection and Correction</h5>
+                    <p class="card-text">Detect and correct errors in network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('error_detection_correction.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title">Firmware Check/Upgrade</h5>
-                    <p class="card-text">Run the firmware check and upgrade playbook.</p>
-                    <button class="btn btn-primary" onclick="runPlaybook('firmware_Check_Upgrade.yml')">
-                        <i class="fas fa-play"></i> Run
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">VLAN Playbook</h5>
-                    <p class="card-text">Run the VLAN configuration playbook.</p>
-                    <button class="btn btn-primary" onclick="runPlaybook('vlan.yml')">
-                        <i class="fas fa-play"></i> Run
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Interface Status</h5>
-                    <p class="card-text">Run the interface status check playbook.</p>
-                    <button class="btn btn-primary" onclick="runPlaybook('interface_status.yml')">
-                        <i class="fas fa-play"></i> Run
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Firmware Check/Upgrade</h5>
-                    <p class="card-text">Run the firmware check and upgrade playbook.</p>
+                    <p class="card-text">Check and upgrade the firmware of network devices.</p>
                     <button class="btn btn-primary" onclick="runPlaybook('firmware_check_upgrade.yml')">
                         <i class="fas fa-play"></i> Run
                     </button>
@@ -90,15 +136,49 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Inventory Device Info</h5>
-                    <p class="card-text">Run the inventory device information playbook.</p>
-                    <button class="btn btn-primary" onclick="runPlaybook('inventory_device_info.yml')">
+                    <h5 class="card-title">Interface Status</h5>
+                    <p class="card-text">Check the status of network interfaces.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('interface_status.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Restore Configuration</h5>
+                    <p class="card-text">Restore the configuration from a backup.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('restore_config.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Security Compliance</h5>
+                    <p class="card-text">Check the security compliance of network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('security_compliance.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">VLAN Configuration</h5>
+                    <p class="card-text">Configure VLANs on network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('vlan_config.yml')">
                         <i class="fas fa-play"></i> Run
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    <div class="overlay" id="overlay"></div>
     <div class="spinner-border text-primary" id="spinner" role="status">
         <span class="sr-only">Loading...</span>
     </div>

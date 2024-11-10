@@ -1,5 +1,5 @@
 ---
-- name: Backup switch configuration
+- name: Backup Device configuration
   hosts: switches
   gather_facts: no
   vars:

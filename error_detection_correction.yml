@@ -7,7 +7,7 @@
     - name: Check interfaces for errors
       cisco.ios.ios_command:
         commands:
-          - show interfaces | include error
+          - show interfaces counters errors
       register: interface_errors
       ignore_errors: yes
 

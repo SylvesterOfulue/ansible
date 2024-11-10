@@ -1,0 +1,188 @@
+Building configuration...
+
+Current configuration : 4647 bytes
+!
+! Last configuration change at 06:41:53 CET Sat Nov 9 2024 by sylvester
+!
+version 15.2
+no service pad
+service timestamps debug datetime localtime show-timezone
+service timestamps log datetime localtime show-timezone
+service password-encryption
+!
+hostname WRDX-SWT-01
+!
+boot-start-marker
+boot-end-marker
+!
+logging buffered 51200
+logging console emergencies
+enable secret 5 $1$rqAV$a2FY9qK7mz94qQEjs3WUz/
+!
+username sylvester secret 5 $1$2NLC$6RzAXxpeX.lGFkCFJq.Z6/
+no aaa new-model
+clock timezone CET 1 0
+clock summer-time CEST recurring last Sun Mar 3:00 last Sun Oct 2:00
+system mtu routing 1500
+!
+!
+ip domain-name blue-net.lan
+vtp mode transparent
+!
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-510604672
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-510604672
+ revocation-check none
+ rsakeypair TP-self-signed-510604672
+!
+!
+crypto pki certificate chain TP-self-signed-510604672
+ certificate self-signed 01
+  30820229 30820192 A0030201 02020101 300D0609 2A864886 F70D0101 05050030 
+  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 35313036 30343637 32301E17 0D303630 31303230 30313733 
+  385A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F 
+  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3531 30363034 
+  36373230 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100 
+  B4811C4D 83EEA057 2411A4F5 8004CE34 7B7D3D91 2C21854B F14AE5BB 615204BE 
+  47A0072B F3C3AC69 B9BC2D25 1A5CEC97 47D297BC 829CB18D 1A61E636 DA5BDD5C 
+  D6731745 109BF682 0A2B12EE 70F22F04 165A62CC 77D17C44 9FF7B4F1 D7047705 
+  1E669BB2 1AC8FF53 92350976 99142E41 618BAED2 B1BD934D 212D2B30 F07DA167 
+  02030100 01A35330 51300F06 03551D13 0101FF04 05300301 01FF301F 0603551D 
+  23041830 168014B5 7614C3B5 3E2A6A58 23FD516B BD98539E A51C5730 1D060355 
+  1D0E0416 0414B576 14C3B53E 2A6A5823 FD516BBD 98539EA5 1C57300D 06092A86 
+  4886F70D 01010505 00038181 001C5A09 5606E79A 6E7C482D F99BED09 A416F0A5 
+  0F895D53 1F181059 90908DFA 9127D7E5 9C860A7E A22F5F1E 179E9762 FC96D426 
+  0743D30A 5067AA4D 0AA554B1 5EDC56B2 74CC085F 868C83AB 0F41AB29 CE0D2A9E 
+  E01E1C80 1045B65A DA94FC67 6E62F2B0 99AD954C 6BA9CC62 BD3255C2 E076D09A 
+  26B6894F 54ADEDF8 5EE917C2 31
+  	quit
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+vlan internal allocation policy ascending
+!
+vlan 100
+ name Wireless LAN
+!
+vlan 101
+ name Warehouse
+!
+vlan 102
+ name Guest
+!
+!
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ description LAN BRANCH (RDC)
+ switchport mode access
+!
+interface FastEthernet0/2
+ description LAN BRANCH
+ switchport mode access
+!
+interface FastEthernet0/3
+ description LAN BRANCH
+ switchport mode access
+!
+interface FastEthernet0/4
+ description LAN BRANCH
+ switchport mode access
+!
+interface FastEthernet0/5
+ description WRDX-AP-01
+ switchport trunk allowed vlan 1,100,102
+ switchport mode trunk
+!
+interface FastEthernet0/6
+ description TEST
+ switchport access vlan 102
+ switchport mode access
+!
+interface FastEthernet0/7
+ description WAREHOUSE
+ switchport access vlan 101
+ switchport mode access
+!
+interface FastEthernet0/8
+ description WAREHOUSE
+ switchport access vlan 101
+ switchport mode access
+!
+interface GigabitEthernet0/1
+ description TEST-FW-01
+ switchport trunk allowed vlan 1,100-102
+ switchport mode trunk
+!
+interface GigabitEthernet0/2
+ description TEST-FW-02
+ switchport trunk allowed vlan 1,100-102
+ switchport mode trunk
+!
+interface Vlan1
+ ip address 10.10.55.220 255.255.255.0
+ no ip route-cache
+!
+interface Vlan100
+ ip address 192.168.171.220 255.255.255.0
+!
+interface Vlan101
+ ip address 192.168.161.220 255.255.255.0
+!
+interface Vlan102
+ ip address 192.168.172.220 255.255.255.0
+!
+ip default-gateway 10.10.55.6
+!
+ip http server
+ip http secure-server
+!
+logging trap notifications
+logging host 10.10.55.1
+snmp-server engineID remote 10.2.10.254 80001F8880424019363D35FE5600000000 
+snmp-server group arpgroup v3 auth write v1default 
+snmp-server community admin RO
+snmp-server location WRDX
+snmp-server contact sylvester.ofulue@logineer.com
+snmp-server enable traps snmp authentication linkdown linkup coldstart warmstart
+snmp-server enable traps mac-notification change move threshold
+snmp-server host 10.10.55.1 version 2c admin 
+!
+line con 0
+ speed 115200
+line vty 0 4
+ session-timeout 20 
+ exec-timeout 5 0
+ password 7 1445413403022C22272D
+ logging synchronous
+ login local
+ transport input all
+line vty 5 15
+ session-timeout 20 
+ exec-timeout 5 0
+ password 7 005640390B5D0D0F0C24
+ logging synchronous
+ login local
+ transport input all
+!
+ntp server de.pool.ntp.org
+ntp server 10.10.55.7 prefer
+mac address-table notification change
+end

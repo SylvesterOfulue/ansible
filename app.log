@@ -1,0 +1,196 @@
+2024-11-10 04:07:41,351 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:07:41,354 INFO werkzeug MainThread :  * Debugger PIN: 129-423-704
+2024-11-10 04:08:04,268 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:08:04] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:08:12,187 INFO root Thread-3 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 04:08:12,188 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:08:12] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:08:26,424 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 04:08:26,424 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 04:08:26,425 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:08:26,640 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:08:26,643 INFO werkzeug MainThread :  * Debugger PIN: 129-423-704
+2024-11-10 04:08:43,382 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:08:43] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:08:51,362 INFO root Thread-3 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 04:08:51,363 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:08:51] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:09:22,768 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 04:09:22,768 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 04:09:22,769 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:09:23,056 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:09:23,059 INFO werkzeug MainThread :  * Debugger PIN: 129-423-704
+2024-11-10 04:10:03,587 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:03] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:10:05,409 INFO root Thread-3 (process_request_thread) : User admin logged out.
+2024-11-10 04:10:05,411 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:05] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-10 04:10:05,422 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:05] "GET /login HTTP/1.1" 200 -
+2024-11-10 04:10:07,978 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:07] "GET /login HTTP/1.1" 200 -
+2024-11-10 04:10:16,856 INFO root Thread-6 (process_request_thread) : User admin logged in.
+2024-11-10 04:10:16,857 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-10 04:10:16,868 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:16] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:10:24,673 INFO root Thread-8 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 04:10:24,674 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:10:24] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:12:41,189 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 04:12:41,189 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 04:12:41,191 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:12:41,406 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:12:41,409 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 04:12:51,856 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:12:51] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:12:52,990 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:12:52] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:12:53,718 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:12:53] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:12:54,408 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:12:54] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:13:07,654 INFO root Thread-6 (process_request_thread) : Playbook device_resources_uptime.yml executed by user admin.
+2024-11-10 04:13:07,654 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:13:07] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:13:16,611 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:13:16] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:13:25,835 INFO root Thread-8 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 04:13:25,835 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:13:25] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:16:49,605 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:16:49] "GET / HTTP/1.1" 200 -
+2024-11-10 04:17:02,630 INFO root Thread-11 (process_request_thread) : Playbook device_resources_uptime.yml executed by user admin.
+2024-11-10 04:17:02,631 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:17:02] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:29:20,943 INFO werkzeug MainThread :  * Detected change in '/home/sylvester/ansible/app.py', reloading
+2024-11-10 04:29:21,082 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:29:21,682 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:29:21,685 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 04:29:32,146 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 04:29:32,147 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 04:29:32,148 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:29:32,350 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:29:32,353 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 04:42:32,039 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 04:42:32,040 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 04:42:32,042 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:42:32,243 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:42:32,246 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 04:46:56,086 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 04:46:56,086 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 04:46:56,089 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 04:46:56,295 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 04:46:56,299 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 04:47:10,751 INFO root Thread-2 (process_request_thread) : Serving index.html
+2024-11-10 04:47:10,769 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:10] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:47:12,135 INFO root Thread-3 (process_request_thread) : Serving index.html
+2024-11-10 04:47:12,136 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:12] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:47:12,949 INFO root Thread-4 (process_request_thread) : Serving index.html
+2024-11-10 04:47:12,950 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:12] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 04:47:14,769 INFO root Thread-5 (process_request_thread) : Received request to run playbook
+2024-11-10 04:47:22,642 INFO root Thread-5 (process_request_thread) : Playbook device_resources_uptime.yml executed by user admin.
+2024-11-10 04:47:22,643 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:22] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 04:47:28,922 INFO root Thread-6 (process_request_thread) : User admin logged out.
+2024-11-10 04:47:28,923 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-10 04:47:28,939 INFO werkzeug Thread-7 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:28] "GET /login HTTP/1.1" 200 -
+2024-11-10 04:47:35,122 WARNING root Thread-8 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 04:47:35,122 INFO werkzeug Thread-8 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:35] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2024-11-10 04:47:44,093 WARNING root Thread-9 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 04:47:44,094 INFO werkzeug Thread-9 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:44] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2024-11-10 04:47:50,980 WARNING root Thread-10 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 04:47:50,980 INFO werkzeug Thread-10 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:50] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2024-11-10 04:47:56,096 INFO werkzeug Thread-11 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:56] "[32mGET / HTTP/1.1[0m" 302 -
+2024-11-10 04:47:56,113 INFO werkzeug Thread-12 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:47:56] "GET /login?next=/ HTTP/1.1" 200 -
+2024-11-10 04:48:00,521 INFO werkzeug Thread-13 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:00] "GET /login?next=/ HTTP/1.1" 200 -
+2024-11-10 04:48:04,141 INFO werkzeug Thread-14 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:04] "GET /login HTTP/1.1" 200 -
+2024-11-10 04:48:05,741 INFO werkzeug Thread-15 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:05] "GET /login HTTP/1.1" 200 -
+2024-11-10 04:48:06,477 INFO werkzeug Thread-16 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:06] "GET /login HTTP/1.1" 200 -
+2024-11-10 04:48:09,502 INFO werkzeug Thread-17 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:09] "GET /login?next=/ HTTP/1.1" 200 -
+2024-11-10 04:48:10,170 INFO werkzeug Thread-18 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:10] "GET /login?next=/ HTTP/1.1" 200 -
+2024-11-10 04:48:19,969 WARNING root Thread-19 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 04:48:19,969 INFO werkzeug Thread-19 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:19] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2024-11-10 04:48:25,615 WARNING root Thread-20 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 04:48:25,616 INFO werkzeug Thread-20 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 04:48:25] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2024-11-10 09:46:58,206 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 09:46:58,206 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 09:46:58,208 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 09:46:58,411 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 09:46:58,419 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 09:47:13,501 WARNING root Thread-2 (process_request_thread) : Failed login attempt for username: admin
+2024-11-10 09:47:13,504 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 09:47:13] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
+2024-11-10 09:47:16,364 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 09:47:16] "GET /login HTTP/1.1" 200 -
+2024-11-10 09:47:27,857 INFO root Thread-4 (process_request_thread) : User admin logged in.
+2024-11-10 09:47:27,858 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 09:47:27] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-10 09:47:27,874 INFO root Thread-5 (process_request_thread) : Serving index.html
+2024-11-10 09:47:27,887 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 09:47:27] "GET / HTTP/1.1" 200 -
+2024-11-10 09:47:30,487 INFO root Thread-6 (process_request_thread) : Received request to run playbook
+2024-11-10 09:47:37,086 INFO root Thread-6 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 09:47:37,087 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 09:47:37] "POST /run_playbook HTTP/1.1" 200 -
+2024-11-10 09:54:38,969 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 09:54:38,969 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 09:54:38,973 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 09:54:39,171 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 09:54:39,176 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:00:19,018 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:00:19,019 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:00:19,021 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:00:19,224 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:00:19,227 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:05:56,697 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:05:56,697 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:05:56,700 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:05:56,900 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:05:56,903 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:09:25,930 INFO werkzeug MainThread :  * Detected change in '/home/sylvester/ansible/app.py', reloading
+2024-11-10 10:09:26,241 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:09:26,938 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:09:26,965 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:10:13,077 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:10:13,078 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:10:13,081 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:10:13,287 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:10:13,290 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:12:23,256 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:12:23,256 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:12:23,257 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:12:23,454 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:12:23,459 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:14:36,092 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:14:36,093 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:14:36,094 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:14:36,297 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:14:36,299 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:14:39,705 INFO root Thread-2 (process_request_thread) : Serving index.html
+2024-11-10 10:14:39,716 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:14:39] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 10:16:56,707 INFO root Thread-4 (process_request_thread) : Serving index.html
+2024-11-10 10:16:56,709 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:16:56] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 10:16:57,518 INFO root Thread-5 (process_request_thread) : Serving index.html
+2024-11-10 10:16:57,519 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:16:57] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 10:38:39,590 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:38:39,590 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:38:39,591 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:38:39,865 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:38:39,869 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:39:03,396 INFO root Thread-2 (process_request_thread) : Serving index.html
+2024-11-10 10:39:03,404 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:39:03] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 10:39:05,003 INFO root Thread-3 (process_request_thread) : Serving index.html
+2024-11-10 10:39:05,005 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:39:05] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 10:44:31,741 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 10:44:31,742 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 10:44:31,743 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 10:44:31,943 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 10:44:31,949 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 10:44:36,671 INFO root Thread-2 (process_request_thread) : User admin logged out.
+2024-11-10 10:44:36,672 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:44:36] "[32mGET /logout HTTP/1.1[0m" 302 -
+2024-11-10 10:44:36,694 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 10:44:36] "GET /login HTTP/1.1" 200 -
+2024-11-10 16:57:57,116 INFO werkzeug MainThread : [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-11-10 16:57:57,116 INFO werkzeug MainThread : [33mPress CTRL+C to quit[0m
+2024-11-10 16:57:57,118 INFO werkzeug MainThread :  * Restarting with stat
+2024-11-10 16:57:57,319 WARNING werkzeug MainThread :  * Debugger is active!
+2024-11-10 16:57:57,327 INFO werkzeug MainThread :  * Debugger PIN: 143-772-956
+2024-11-10 16:58:04,350 INFO werkzeug Thread-2 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 16:58:04] "GET /login HTTP/1.1" 200 -
+2024-11-10 16:58:05,241 INFO werkzeug Thread-3 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 16:58:05] "GET /login HTTP/1.1" 200 -
+2024-11-10 16:58:12,889 INFO root Thread-4 (process_request_thread) : User admin logged in.
+2024-11-10 16:58:12,890 INFO werkzeug Thread-4 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 16:58:12] "[32mPOST /login HTTP/1.1[0m" 302 -
+2024-11-10 16:58:12,905 INFO root Thread-5 (process_request_thread) : Serving index.html
+2024-11-10 16:58:12,914 INFO werkzeug Thread-5 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 16:58:12] "[36mGET / HTTP/1.1[0m" 304 -
+2024-11-10 16:58:15,765 INFO root Thread-6 (process_request_thread) : Received request to run playbook
+2024-11-10 16:58:21,890 INFO root Thread-6 (process_request_thread) : Playbook device_info.yml executed by user admin.
+2024-11-10 16:58:21,890 INFO werkzeug Thread-6 (process_request_thread) : 127.0.0.1 - - [10/Nov/2024 16:58:21] "POST /run_playbook HTTP/1.1" 200 -
