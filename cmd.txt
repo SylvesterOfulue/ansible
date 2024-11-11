@@ -29,4 +29,5 @@ ansible-playbook device_info.yml
 pip install flask
 pip install flask_login
 
+On windows
 
