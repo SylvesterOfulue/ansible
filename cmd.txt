@@ -29,5 +29,24 @@ ansible-playbook device_info.yml
 pip install flask
 pip install flask_login
 
-On windows
+On Linux
+create virtual environment not within the git repo folder
+ python3 -m venv myenv
+ source ~/myenv/bin/activate
+install ansible
+ pip install ansible
+ pip install ansible-pylibssh 
 
+pip install flask
+pip install flask_login
+
+Host 192.168.2.240
+	User admin
+	KexAlgorithms=+diffie-hellman-group14-sha1
+	Ciphers=aes256-cbc
+	HostKeyAlgorithms=ssh-rsa 
+Host 10.10.55.220	
+ User sylvester
+ KexAlgorithms=+diffie-hellman-group14-sha1 
+ Ciphers=aes128-ctr,aes192-ctr,aes256-ctr
+ HostKeyAlgorithms=ssh-rsa
