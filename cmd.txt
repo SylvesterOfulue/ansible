@@ -8,5 +8,21 @@ git push origin main
 ansible -i cisco.yml cisco_switch -m ansible.builtin.ping 
 python3 -m venv myenv
 source ~/myenv/bin/activate
+pip install ansible
 pip install ansible-lint
+
+
+
+on macOS system
+ brew install libssh
+
+create virtual environment not within the git repo folder
+ python3 -m venv myenv
+ source ~/myenv/bin/activate
+
+install ansible
+ pip install ansible
+ pip install ansible-pylibssh (first execute "brew install libssh")
+
+ansible-playbook device_info.yml
 
