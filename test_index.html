@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switch_Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .card-text {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .spinner-border {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 999;
+        }
+        .modal-content {
+            border-radius: 0.5rem;
+        }
+        .modal-header {
+            border-bottom: none;
+        }
+        .modal-footer {
+            border-top: none;
+        }
+    </style>
+    <script>
+        async function runPlaybook(playbook) {
+            const selectedHost = document.getElementById('hostSelect').value;
+            console.log('Running playbook:', playbook, 'on host:', selectedHost);
+            document.getElementById('spinner').style.display = 'inline-block';
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('output').innerText = '';
+            document.getElementById('error').innerText = '';
+            try {
+                const response = await fetch('/run_playbook', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ playbook, host: selectedHost })
+                });
+                const result = await response.json();
+                console.log('Playbook output:', result.output);
+                console.log('Playbook error:', result.error);
+                document.getElementById('output').innerText = result.output;
+                document.getElementById('error').innerText = result.error;
+            } catch (error) {
+                console.error('Error running playbook:', error);
+                document.getElementById('error').innerText = 'An error occurred while running the playbook.';
+            } finally {
+                document.getElementById('spinner').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+                $('#outputModal').modal('show');
+            }
+        }
+    </script>
+</head>
+<body class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Switch_Manager</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <h3 class="my-4">Run Ansible Playbooks</h3>
+    <div class="form-group">
+        <label for="hostSelect">Select Host/Group:</label>
+        <select class="form-control" id="hostSelect">
+            <option value="all">All Hosts</option>
+            <option value="group1">Group 1</option>
+            <option value="group2">Group 2</option>
+            <option value="host1">Host 1</option>
+            <option value="host2">Host 2</option>
+        </select>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Backup Configuration</h5>
+                    <p class="card-text">Backup the configuration of network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('backup_config.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Device Info</h5>
+                    <p class="card-text">Get information about network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('device_info.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Device Resources Uptime</h5>
+                    <p class="card-text">Check the resources and uptime of network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('device_resources_uptime.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Firmware Check/Upgrade</h5>
+                    <p class="card-text">Check and upgrade the firmware of network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('firmware_check_upgrade.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Interface Status</h5>
+                    <p class="card-text">Check the status of network interfaces.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('interface_status.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">VLAN Configuration</h5>
+                    <p class="card-text">Configure VLANs on network devices.</p>
+                    <button class="btn btn-primary" onclick="runPlaybook('vlan_config.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    <div class="spinner-border text-primary" id="spinner" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div class="modal fade" id="outputModal" tabindex="-1" role="dialog" aria-labelledby="outputModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="outputModalLabel">Playbook Output</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Output</h2>
+                    <pre id="output" class="bg-light p-3"></pre>
+                    <h2>Error</h2>
+                    <pre id="error" class="bg-light p-3"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
