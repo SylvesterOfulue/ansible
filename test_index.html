@@ -80,8 +80,8 @@
                 const result = await response.json();
                 console.log('Playbook output:', result.output);
                 console.log('Playbook error:', result.error);
-                document.getElementById('output').innerText = result.output;
-                document.getElementById('error').innerText = result.error;
+                document.getElementById('output').innerText = result.output || 'No output';
+                document.getElementById('error').innerText = result.error || 'No error';
             } catch (error) {
                 console.error('Error running playbook:', error);
                 document.getElementById('error').innerText = 'An error occurred while running the playbook.';
@@ -208,5 +208,4 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs
+    <script src="https://code.jquery.com/jquery-3.
