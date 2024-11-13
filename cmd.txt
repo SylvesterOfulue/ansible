@@ -1,4 +1,8 @@
- ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=aes256-cbc -o HostKeyAlgorithms=ssh-rsa  admin@192.168.2.240
+<button class="btn btn-primary" onclick="runPlaybook('device_resources_uptime.yml')">
+                        <i class="fas fa-play"></i> Run
+                    </button>
+
+ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=aes256-cbc -o HostKeyAlgorithms=ssh-rsa  admin@192.168.2.240
 
 git status
 git add .
