@@ -2,6 +2,8 @@
                         <i class="fas fa-play"></i> Run
                     </button>
 
+echo "web: gunicorn app:app" > Procfile
+
 ssh -o KexAlgorithms=+diffie-hellman-group14-sha1 -o Ciphers=aes256-cbc -o HostKeyAlgorithms=ssh-rsa  admin@192.168.2.240
 
 git status
